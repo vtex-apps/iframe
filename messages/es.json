@@ -1,0 +1,7 @@
+{
+  "editor.iframe.title": "Iframe",
+  "editor.iframe.src.description": "Dirección de origen del iframe",
+  "editor.iframe.src.title": "Src",
+  "editor.iframe.height.title": "Altura",
+  "editor.iframe.width.title": "Longitud"
+}
