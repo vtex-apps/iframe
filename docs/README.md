@@ -6,7 +6,7 @@
 
 ![image](https://user-images.githubusercontent.com/18701182/67055752-abcb0500-f11f-11e9-8c24-50234214d474.png)
 
-An app that makes it possible to render external iframes on 
+An app that makes it possible to render external iframes on a store 
 
 ## Configuration
 
@@ -44,8 +44,8 @@ An app that makes it possible to render external iframes on
 |--------------|--------|--------------| --------|
 | `src` | String | Source address the iframe should render | `null`
 | `width` | Number | Width attribute of the iframe | `null`
-| `height` | Number | Width attribute of the iframe | `null`
+| `height` | Number | Height attribute of the iframe | `null`
 
 ## Customization
 
-There is a `container` handle that wraps the iframe, it's also possible to use `blockClass`
+There is a `.container` handle that wraps the iframe, it's also possible to use `blockClass`
