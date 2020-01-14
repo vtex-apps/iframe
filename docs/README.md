@@ -50,7 +50,6 @@ An app that makes it possible to render external iframes on a store
 
 1. Add the `vtex.iframe` to the theme's dependencies on the `manifest.json`
 ```
-...
 "dependencies": {
  ...
   "vtex.iframe": "0.x"
