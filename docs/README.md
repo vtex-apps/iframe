@@ -92,7 +92,7 @@ An app that makes it possible to render external iframes on a store
 ```
 4. register your new page in routes.json with appropriate parameters passed into the page url
 
-```
+```json
 "store.custom.locationPage":{
         "path": "/:param1/:param2/pagename"
     },
