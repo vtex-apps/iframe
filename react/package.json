@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
+    "@types/graphql": "^14.5.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
     "@types/prop-types": "^15.7.0",
@@ -24,7 +25,10 @@
     "eslint-config-vtex-react": "^4.1.0",
     "prettier": "^1.18.2",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "3.5.2"
+    "typescript": "3.7.3",
+    "vtex.styleguide": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.styleguide@9.104.7/public/@types/vtex.styleguide",
+    "vtex.render-runtime": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.88.0/public/@types/vtex.render-runtime",
+    "vtex.css-handles": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.css-handles@0.4.1/public/@types/vtex.css-handles"
   },
   "version": "0.0.4"
 }

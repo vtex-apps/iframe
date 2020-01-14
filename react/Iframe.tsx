@@ -1,18 +1,20 @@
 import React from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
-const CSS_HANDLES = ['container'] as const 
+const CSS_HANDLES = ['container'] as const
 
 const Iframe: StorefrontFunctionComponent<IframeProps> = ({
-   src,
-   width,
-   height
-  }) => {
+  src,
+  width,
+  height,
+  title,
+}) => {
   const handles = useCssHandles(CSS_HANDLES)
 
   return (
     <div className={`${handles.container} w-100 flex justify-center`}>
       <iframe
+        title={title}
         src={src}
         width={width}
         height={height}
@@ -23,9 +25,10 @@ const Iframe: StorefrontFunctionComponent<IframeProps> = ({
 }
 
 interface IframeProps {
-  src?: string,
-  width?: number,
+  src?: string
+  width?: number
   height?: number
+  title?: string
 }
 
 Iframe.schema = {
@@ -38,16 +41,21 @@ Iframe.schema = {
       type: 'string',
       default: null,
     },
-    width: { 
+    width: {
       title: 'editor.iframe.width.title',
       type: 'number',
       default: null,
     },
-    height: { 
+    height: {
       title: 'editor.iframe.height.title',
       type: 'number',
       default: null,
-    }
+    },
+    title: {
+      title: 'editor.iframe.title.title',
+      type: 'string',
+      default: null,
+    },
   },
 }
 

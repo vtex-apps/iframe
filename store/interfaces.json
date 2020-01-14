@@ -1,5 +1,8 @@
 {
   "iframe": {
     "component": "Iframe"
+  },
+  "dynamicIframe":{
+    "component": "DynamicIframe"
   }
 }
