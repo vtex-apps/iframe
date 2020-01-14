@@ -59,7 +59,7 @@ An app that makes it possible to render external iframes on a store
  
  2. Add the interface `dynamicIframe` to any **custom page** (Dynamic Iframes are not allowed outside custom pages).
  
- ```
+```json
  ...
 "store.custom.locationPage":{
         "allowed":[
