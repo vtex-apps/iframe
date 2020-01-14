@@ -71,7 +71,7 @@ An app that makes it possible to render external iframes on a store
 ```
 
 
-3. Add the dynamicIframe block and it's properties to the blocks.json file
+3. Add the dynamicIframe block and its properties to the blocks.json file
 
  ```
  "store.custom.locationPage":{
