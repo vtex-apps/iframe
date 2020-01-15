@@ -3,5 +3,12 @@
   "editor.iframe.src.description": "Source url of the iframe",
   "editor.iframe.src.title": "Src",
   "editor.iframe.height.title": "Height",
-  "editor.iframe.width.title": "Width"
+  "editor.iframe.width.title": "Width",
+  "editor.iframe.title.title": "Title",
+  "editor.dynamiciframe.title": "Dynamic Iframe",
+  "editor.dynamiciframe.title.title": "Title",
+  "editor.dynamiciframe.dynamicSrc.description": "url to be used by iframe, use {param} for dynamic parameters",
+  "editor.dynamiciframe.dynamicSrc.title": "Prepend",
+  "editor.dynamiciframe.height.title": "Height",
+  "editor.dynamiciframe.width.title": "Width"
 }

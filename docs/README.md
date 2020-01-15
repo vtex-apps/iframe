@@ -8,7 +8,7 @@
 
 An app that makes it possible to render external iframes on a store 
 
-## Configuration
+## Configuration - standard Iframe
 
 1. Add the `vtex.iframe` to the theme's dependencies on the `manifest.json`
 ```
@@ -45,6 +45,50 @@ An app that makes it possible to render external iframes on a store
 | `src` | String | Source address the iframe should render | `null`
 | `width` | Number | Width attribute of the iframe | `null`
 | `height` | Number | Height attribute of the iframe | `null`
+
+## Configuration - dynamic Iframe
+
+1. Add the `vtex.iframe` to the theme's dependencies on the `manifest.json`
+
+```json
+"dependencies": {
+ ...
+  "vtex.iframe": "0.x"
+}
+...
+```
+
+2. Add the dynamicIframe block and its properties to the blocks.json file
+
+```json
+"store.custom.locationPage":{
+    "children":[
+      "iframe.dynamic-src"
+    ]
+  },
+"iframe.dynamic-src":{
+  "props":{
+      "dynamicSrc":"https://www.test.com/exampleStaticPathName/{dynamicParam1}/{dynamicParam2}/exampleStaticPageName",
+      "width":"1920",
+      "height":"1000",
+      "title":"exampleStaticPageName iframe wrapper for {account}"
+    }
+  }
+```
+3. register your new page in routes.json with appropriate parameters passed into the page url
+
+```json
+"store.custom.locationPage":{
+    "path": "/:param1/:param2/pagename"
+  },
+```
+
+| Prop name | Type | Description | Default value |
+|--------------|--------|--------------| --------|
+| `dynamicSrc` | String | iframe src with dynamic parameters from page URL enclosed in '{}' | `null`
+| `width` | Number | Width attribute of the iframe | `null`
+| `height` | Number | Height attribute of the iframe | `null`
+| `title` | String | title attribute of the iframe tag | `null`
 
 ## Customization
 
