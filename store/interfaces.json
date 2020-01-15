@@ -2,7 +2,7 @@
   "iframe": {
     "component": "Iframe"
   },
-  "dynamicIframe":{
+  "iframe.dynamic-src":{
     "component": "DynamicIframe"
   }
 }

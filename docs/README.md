@@ -49,6 +49,7 @@ An app that makes it possible to render external iframes on a store
 ## Configuration - dynamic Iframe
 
 1. Add the `vtex.iframe` to the theme's dependencies on the `manifest.json`
+
 ```json
 "dependencies": {
  ...
@@ -56,44 +57,32 @@ An app that makes it possible to render external iframes on a store
 }
 ...
 ```
- 
- 2. Add the interface `dynamicIframe` to any **custom page** (Dynamic Iframes are not allowed outside custom pages).
- 
+
+2. Add the dynamicIframe block and its properties to the blocks.json file
+
 ```json
- ...
 "store.custom.locationPage":{
-        "allowed":[
-            "dynamicIframe"
-        ]
-    },
-```
-
-
-3. Add the dynamicIframe block and its properties to the blocks.json file
-
-```json
- "store.custom.locationPage":{
-        "children":[
-            "dynamicIframe"
-        ]
-    },
-    "dynamicIframe":{
-        "props":{
-            "srcPrepend":"https://www.{account}.com/",
-            "srcAppend":"pagename",
-            "dynamicParams":["param1","param2"],
-            "width":"1920",
-            "height":"1000",
-            "title":"{pagename} iframe wrapper for {account}"
-        }
+    "children":[
+      "iframe.dynamic-src"
+    ]
+  },
+"iframe.dynamic-src":{
+  "props":{
+      "srcPrepend":"https://www.{account}.com/",
+      "srcAppend":"pagename",
+      "dynamicParams":["param1","param2"],
+      "width":"1920",
+      "height":"1000",
+      "title":"{pagename} iframe wrapper for {account}"
     }
+  }
 ```
-4. register your new page in routes.json with appropriate parameters passed into the page url
+3. register your new page in routes.json with appropriate parameters passed into the page url
 
 ```json
 "store.custom.locationPage":{
-        "path": "/:param1/:param2/pagename"
-    },
+    "path": "/:param1/:param2/pagename"
+  },
 ```
 
 | Prop name | Type | Description | Default value |
