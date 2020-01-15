@@ -3,7 +3,7 @@ import React from 'react'
 import { useRuntime } from 'vtex.render-runtime'
 
 const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
-  dynamicSrc,
+  dynamicSrc = '',
   width,
   height,
   title,
@@ -11,17 +11,13 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   const {
     route: { params },
   } = useRuntime()
-  if (dynamicSrc && dynamicSrc.length) {
-    dynamicSrc.split('/').forEach(thisValue => {
-      if (thisValue.indexOf('{') >= 0) {
-        dynamicSrc = dynamicSrc.replace(/({[A-z0-1]*})/g, function(match) {
-          var thisParam = match.replace(/{|}/g, '')
-          return params[thisParam]
-        })
-      }
-    })
-  }
-  return <Iframe title={title} src={dynamicSrc} width={width} height={height} />
+
+  const src = dynamicSrc.replace(/({[A-z0-1]*})/g, function(match: string) {
+    var thisParam = match.replace(/{|}/g, '')
+    return params[thisParam]
+  })
+
+  return <Iframe title={title} src={src} width={width} height={height} />
 }
 
 interface DynamicIframeProps {
