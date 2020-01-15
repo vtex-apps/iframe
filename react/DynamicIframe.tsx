@@ -13,7 +13,7 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   } = useRuntime()
 
   const src = dynamicSrc.replace(/({[A-z0-1]*})/g, function(match: string) {
-    var thisParam = match.replace(/{|}/g, '')
+    const thisParam = match.replace(/{|}/g, '')
     return params[thisParam]
   })
 
