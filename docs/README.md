@@ -68,12 +68,10 @@ An app that makes it possible to render external iframes on a store
   },
 "iframe.dynamic-src":{
   "props":{
-      "srcPrepend":"https://www.{account}.com/",
-      "srcAppend":"pagename",
-      "dynamicParams":["param1","param2"],
+      "dynamicSrc":"https://www.test.com/exampleStaticPathName/{dynamicParam1}/{dynamicParam2}/exampleStaticPageName",
       "width":"1920",
       "height":"1000",
-      "title":"{pagename} iframe wrapper for {account}"
+      "title":"exampleStaticPageName iframe wrapper for {account}"
     }
   }
 ```
@@ -87,9 +85,7 @@ An app that makes it possible to render external iframes on a store
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
-| `srcPrepend` | String | domain for Iframe src with any additional desired SEO routing elements  | `null`
-| `srcAppend` | String | value appended to end of Iframe src | `null`
-| `dynamicParams` | String [] | array of parameter names passed from routes.json | `null`
+| `dynamicSrc` | String | iframe src with dynamic parameters from page URL enclosed in '{}' | `null`
 | `width` | Number | Width attribute of the iframe | `null`
 | `height` | Number | Height attribute of the iframe | `null`
 | `title` | String | title attribute of the iframe tag | `null`

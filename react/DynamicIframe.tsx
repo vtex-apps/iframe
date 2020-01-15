@@ -3,9 +3,7 @@ import React from 'react'
 import { useRuntime } from 'vtex.render-runtime'
 
 const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
-  srcPrepend,
-  dynamicParams,
-  srcAppend,
+  dynamicSrc,
   width,
   height,
   title,
@@ -13,25 +11,21 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   const {
     route: { params },
   } = useRuntime()
-  let dynamicSrcValues = ''
-  if (dynamicParams && dynamicParams.length) {
-    dynamicParams.forEach(thisValue => {
-      if (params[thisValue]) {
-        dynamicSrcValues += '/' + params[thisValue]
+  if (dynamicSrc && dynamicSrc.length) {
+    dynamicSrc.split('/').forEach(thisValue => {
+      if (thisValue.indexOf('{') >= 0) {
+        var thisParam = thisValue.replace('{', '').replace('}', '')
+        if (params[thisParam] && dynamicSrc.indexOf(thisValue) >= 0) {
+          dynamicSrc = dynamicSrc.replace(thisValue, params[thisParam])
+        }
       }
     })
   }
-  const newSrc =
-    srcPrepend +
-    dynamicSrcValues +
-    (srcAppend && srcAppend != '' ? '/' + srcAppend : '')
-  return <Iframe title={title} src={newSrc} width={width} height={height} />
+  return <Iframe title={title} src={dynamicSrc} width={width} height={height} />
 }
 
 interface DynamicIframeProps {
-  srcPrepend?: string
-  dynamicParams?: string[]
-  srcAppend?: string
+  dynamicSrc: string
   width?: number
   height?: number
   title?: string
@@ -41,15 +35,9 @@ DynamicIframe.schema = {
   title: 'editor.dynamiciframe.title',
   type: 'object',
   properties: {
-    srcPrepend: {
-      title: 'editor.dynamiciframe.srcPrepend.title',
-      description: 'editor.dynamiciframe.srcPrepend.description',
-      type: 'string',
-      default: null,
-    },
-    srcAppend: {
-      title: 'editor.dynamiciframe.srcAppend.title',
-      description: 'editor.dynamiciframe.srcAppend.description',
+    dynamicSrc: {
+      title: 'editor.dynamiciframe.dynamicSrc.title',
+      description: 'editor.dynamiciframe.dynamicSrc.description',
       type: 'string',
       default: null,
     },
