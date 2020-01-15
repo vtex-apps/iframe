@@ -14,10 +14,10 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   if (dynamicSrc && dynamicSrc.length) {
     dynamicSrc.split('/').forEach(thisValue => {
       if (thisValue.indexOf('{') >= 0) {
-        var thisParam = thisValue.replace('{', '').replace('}', '')
-        if (params[thisParam] && dynamicSrc.indexOf(thisValue) >= 0) {
-          dynamicSrc = dynamicSrc.replace(thisValue, params[thisParam])
-        }
+        dynamicSrc = dynamicSrc.replace(/({[A-z0-1]*})/g, function(match) {
+          var thisParam = match.replace(/{|}/g, '')
+          return params[thisParam]
+        })
       }
     })
   }
