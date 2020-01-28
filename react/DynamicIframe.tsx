@@ -14,7 +14,14 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
 
   const src = dynamicSrc.replace(/({[A-z0-9]*})/g, function(match: string) {
     const thisParam = match.replace(/{|}/g, '')
-    return params[thisParam]
+    if (thisParam && params[thisParam]) {
+      return params[thisParam]
+    } else {
+      console.error(
+        'parameter ' + thisParam + ' not found in runtime params: ' + params
+      )
+      return ''
+    }
   })
 
   return <Iframe title={title} src={src} width={width} height={height} />
