@@ -2,7 +2,6 @@ import Iframe from './Iframe'
 import React from 'react'
 import { useRuntime } from 'vtex.render-runtime'
 
-var allParamsExist = true
 const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   dynamicSrc = '',
   width,
@@ -12,7 +11,7 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   const {
     route: { params },
   } = useRuntime()
-
+  var allParamsExist = true
   const src = dynamicSrc.replace(/({[A-z0-9]*})/g, function(match: string) {
     const thisParam = match.replace(/{|}/g, '')
     if (thisParam && params[thisParam]) {
