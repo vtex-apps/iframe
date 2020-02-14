@@ -14,14 +14,14 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   let allParamsExist = true
   const src = dynamicSrc.replace(/({[A-z0-9]*})/g, function(match: string) {
     const thisParam = match.replace(/{|}/g, '')
-    if (thisParam && params[thisParam]) {
-      return params[thisParam]
+    if (!thisParam && !params[thisParam]) {
+      allParamsExist = false
+      console.error(
+        'parameter ' + thisParam + ' not found in runtime params: ' + params
+      )
+      return ''
     }
-    allParamsExist = false
-    console.error(
-      'parameter ' + thisParam + ' not found in runtime params: ' + params
-    )
-    return ''
+    return params[thisParam]
   })
 
   if (allParamsExist !== true || src == '' || src == undefined) {
