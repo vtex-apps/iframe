@@ -61,7 +61,7 @@ An app that makes it possible to render external iframes on a store
 2. Add the dynamicIframe block and its properties to the blocks.json file
 
 ```json
-"store.custom.locationPage":{
+"store.custom#locationPage":{
     "children":[
       "iframe.dynamic-src"
     ]
@@ -78,7 +78,7 @@ An app that makes it possible to render external iframes on a store
 3. register your new page in routes.json with appropriate parameters passed into the page url
 
 ```json
-"store.custom.locationPage":{
+"store.custom#locationPage":{
     "path": "/:param1/:param2/pagename"
   },
 ```
