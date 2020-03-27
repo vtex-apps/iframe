@@ -11,8 +11,24 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   const {
     route: { params },
   } = useRuntime()
+
+  const { query } = useRuntime()
+  var formattedQueryString = ''
+  if (query) {
+    if (Object.keys(query).length >= 1) {
+      formattedQueryString = '?'
+    }
+    Object.keys(query).forEach(function(key, index) {
+      //arr.push(query[key])
+      formattedQueryString += key + '=' + query[key]
+      if (index != Object.keys(query).length - 1) {
+        formattedQueryString += '&'
+      }
+    })
+  }
   let allParamsExist = true
-  const src = dynamicSrc.replace(/({[A-z0-9]*})/g, function(match: string) {
+
+  let src = dynamicSrc.replace(/({[A-z0-9]*})/g, function(match: string) {
     const thisParam = match.replace(/{|}/g, '')
     if (!thisParam || !params[thisParam]) {
       allParamsExist = false
@@ -27,7 +43,15 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   if (allParamsExist !== true || src == '' || src == undefined) {
     return null
   }
-  return <Iframe title={title} src={src} width={width} height={height} />
+
+  return (
+    <Iframe
+      title={title}
+      src={src + formattedQueryString}
+      width={width}
+      height={height}
+    />
+  )
 }
 
 interface DynamicIframeProps {
