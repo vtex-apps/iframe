@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from '@vtex/test-tools/react'
-import DynamicIframe from '../DynamicIframe'
 import { useRuntime } from 'vtex.render-runtime'
+
+import DynamicIframe from '../DynamicIframe'
 
 const mockedUseRuntime = useRuntime as jest.Mock
 
