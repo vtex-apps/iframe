@@ -43,11 +43,7 @@ An app that makes it possible to render external iframes on a store
  ...
  ```
 
-| Prop name | Type | Description | Default value |
-|--------------|--------|--------------| --------|
-| `src` | String | Source address the iframe should render | `null`
-| `width` | Number | Width attribute of the iframe | `null`
-| `height` | Number | Height attribute of the iframe | `null`
+%PROPS=Iframe%
 
 ## Configuration - dynamic Iframe
 
@@ -86,12 +82,7 @@ An app that makes it possible to render external iframes on a store
   },
 ```
 
-| Prop name | Type | Description | Default value |
-|--------------|--------|--------------| --------|
-| `dynamicSrc` | String | iframe src with dynamic parameters from page URL enclosed in '{}' | `null`
-| `width` | Number | Width attribute of the iframe | `null`
-| `height` | Number | Height attribute of the iframe | `null`
-| `title` | String | title attribute of the iframe tag | `null`
+%PROPS=DynamicIframe%
 
 ## Customization
 
