@@ -8,6 +8,7 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   width,
   height,
   title,
+  allow,
 }) => {
   const {
     route: { params },
@@ -42,6 +43,7 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
       src={src + queryString}
       width={width}
       height={height}
+      allow={allow}
     />
   )
 }
@@ -51,6 +53,7 @@ interface DynamicIframeProps {
   width?: number
   height?: number
   title?: string
+  allow?: string
 }
 
 DynamicIframe.schema = {
@@ -78,6 +81,11 @@ DynamicIframe.schema = {
       type: 'string',
       default: null,
     },
+    allow:{
+      title: 'editor.dynamiciframe.allow.title',
+      type: 'string',
+      default: null,
+    }
   },
 }
 

@@ -8,6 +8,7 @@ const Iframe: StorefrontFunctionComponent<IframeProps> = ({
   width,
   height,
   title,
+  allow,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -18,6 +19,7 @@ const Iframe: StorefrontFunctionComponent<IframeProps> = ({
         src={src}
         width={width}
         height={height}
+        allow={allow}
         frameBorder="0"
       />
     </div>
@@ -28,6 +30,7 @@ interface IframeProps {
   src?: string
   width?: number
   height?: number
+  allow?: string
   title?: string
 }
 
@@ -55,6 +58,12 @@ Iframe.schema = {
       title: 'editor.iframe.title.title',
       type: 'string',
       default: null,
+    },
+    allow:{
+      title:'editor.iframe.allow.title',
+      type:'string',
+      default: null,
+
     },
   },
 }

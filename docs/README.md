@@ -48,6 +48,7 @@ An app that makes it possible to render external iframes on a store
 | `src` | String | Source address the iframe should render | `null`
 | `width` | Number | Width attribute of the iframe | `null`
 | `height` | Number | Height attribute of the iframe | `null`
+| `allow` | String | allow attribute for custom js | `null`
 
 ## Configuration - dynamic Iframe
 
@@ -74,7 +75,8 @@ An app that makes it possible to render external iframes on a store
       "dynamicSrc":"https://www.test.com/exampleStaticPathName/{dynamicParam1}/{dynamicParam2}/exampleStaticPageName",
       "width":"1920",
       "height":"1000",
-      "title":"exampleStaticPageName iframe wrapper for {account}"
+      "title":"exampleStaticPageName iframe wrapper for {account}",
+      "allow": "geolocation"
     }
   }
 ```
@@ -92,6 +94,7 @@ An app that makes it possible to render external iframes on a store
 | `width` | Number | Width attribute of the iframe | `null`
 | `height` | Number | Height attribute of the iframe | `null`
 | `title` | String | title attribute of the iframe tag | `null`
+| `allow` | String | allow attribute for custom js | `null`
 
 ## Customization
 
