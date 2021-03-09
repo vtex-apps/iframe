@@ -5,7 +5,7 @@
   "editor.iframe.height.title": "Height",
   "editor.iframe.width.title": "Width",
   "editor.iframe.title.title": "Title",
-  "editor.iframe.allow.title":"Allow",
+  "editor.iframe.allow.title": "Allow",
   "editor.dynamiciframe.title": "Dynamic Iframe",
   "editor.dynamiciframe.title.title": "Title",
   "editor.dynamiciframe.srcPrepend.description": "iframe source url pre-pended string",
@@ -14,5 +14,5 @@
   "editor.dynamiciframe.srcAppend.title": "Append",
   "editor.dynamiciframe.height.title": "Height",
   "editor.dynamiciframe.width.title": "Width",
-  "editor.dynamiciframe.allow.title":"Allow"
+  "editor.dynamiciframe.allow.title": "Allow"
 }

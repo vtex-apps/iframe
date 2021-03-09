@@ -1,19 +1,27 @@
 import React from 'react'
-import { useRuntime } from 'vtex.render-runtime'
+import { useRuntime, RenderContext } from 'vtex.render-runtime'
 
 import Iframe from './Iframe'
 
-const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
+interface Props {
+  dynamicSrc: string
+  width?: number
+  height?: number
+  title?: string
+  allow?: string
+}
+
+function DynamicIframe({
   dynamicSrc = '',
   width,
   height,
   title,
   allow,
-}) => {
+}: Props) {
   const {
     route: { params },
     query = {},
-  } = useRuntime()
+  } = useRuntime() as RenderContext.RenderContext
 
   const queryString = Object.keys(query).reduce((acc, key) => {
     return `${acc || '?'}${key}=${query[key]}&`
@@ -48,14 +56,6 @@ const DynamicIframe: StorefrontFunctionComponent<DynamicIframeProps> = ({
   )
 }
 
-interface DynamicIframeProps {
-  dynamicSrc: string
-  width?: number
-  height?: number
-  title?: string
-  allow?: string
-}
-
 DynamicIframe.schema = {
   title: 'editor.dynamiciframe.title',
   type: 'object',
@@ -81,11 +81,11 @@ DynamicIframe.schema = {
       type: 'string',
       default: null,
     },
-    allow:{
+    allow: {
       title: 'editor.dynamiciframe.allow.title',
       type: 'string',
       default: null,
-    }
+    },
   },
 }
 
