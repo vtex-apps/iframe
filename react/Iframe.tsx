@@ -3,12 +3,15 @@ import { useCssHandles } from 'vtex.css-handles'
 
 const CSS_HANDLES = ['container'] as const
 
-const Iframe: StorefrontFunctionComponent<IframeProps> = ({
-  src,
-  width,
-  height,
-  title,
-}) => {
+interface Props {
+  src?: string
+  width?: number
+  height?: number
+  allow?: string
+  title?: string
+}
+
+function Iframe({ src, width, height, title, allow }: Props) {
   const handles = useCssHandles(CSS_HANDLES)
 
   return (
@@ -18,17 +21,11 @@ const Iframe: StorefrontFunctionComponent<IframeProps> = ({
         src={src}
         width={width}
         height={height}
+        allow={allow}
         frameBorder="0"
       />
     </div>
   )
-}
-
-interface IframeProps {
-  src?: string
-  width?: number
-  height?: number
-  title?: string
 }
 
 Iframe.schema = {
@@ -53,6 +50,11 @@ Iframe.schema = {
     },
     title: {
       title: 'editor.iframe.title.title',
+      type: 'string',
+      default: null,
+    },
+    allow: {
+      title: 'editor.iframe.allow.title',
       type: 'string',
       default: null,
     },
