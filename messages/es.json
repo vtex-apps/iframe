@@ -1,9 +1,9 @@
 {
   "editor.iframe.title": "Iframe",
-  "editor.iframe.src.description": "Dirección de origen del iframe",
+  "editor.iframe.src.description": "Source url of the iframe",
   "editor.iframe.src.title": "Src",
-  "editor.iframe.height.title": "Altura",
-  "editor.iframe.width.title": "Longitud",
+  "editor.iframe.height.title": "Height",
+  "editor.iframe.width.title": "Width",
   "editor.iframe.title.title": "Title",
   "editor.iframe.allow.title": "Allow",
   "editor.dynamiciframe.title": "Dynamic Iframe",
