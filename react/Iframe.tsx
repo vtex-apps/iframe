@@ -23,7 +23,7 @@ function Iframe({ src, width, height, title, allow }: Props) {
         height={height}
         allow={allow}
         frameBorder="0"
-        className={`${handles.iframe}`}
+        className={`${handles.iframe}` }
       />
     </div>
   )
