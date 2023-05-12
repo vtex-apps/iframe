@@ -23,7 +23,7 @@ function Iframe(props: Props) {
     // eslint-disable-next-line vtex/prefer-early-return
     if (onLoad) {
       // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
-      return Function('IframeHandler', `"use strict";(${onLoad});`)()
+      return Function('IframeHandler', `"use strict";(${onLoad});`)(onLoad)
     }
     return null
   }
