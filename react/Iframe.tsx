@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
@@ -9,10 +10,23 @@ interface Props {
   height?: number
   allow?: string
   title?: string
+  id?: string
+  className?: string
+  onLoad?: any
 }
 
-function Iframe({ src, width, height, title, allow }: Props) {
+function Iframe(props: Props) {
+  const { src, width, height, title, allow, id, className, onLoad } = props
   const handles = useCssHandles(CSS_HANDLES)
+
+  const handleIframeLoad = () => {
+    // eslint-disable-next-line vtex/prefer-early-return
+    if (onLoad) {
+      // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
+      return Function('IframeHandler', `"use strict";(${onLoad});`)()
+    }
+    return null
+  }
 
   return (
     <div className={`${handles.container} w-100 flex justify-center`}>
@@ -22,6 +36,9 @@ function Iframe({ src, width, height, title, allow }: Props) {
         width={width}
         height={height}
         allow={allow}
+        id={id}
+        className={className}
+        onLoad={handleIframeLoad}
         frameBorder="0"
       />
     </div>
@@ -50,6 +67,21 @@ Iframe.schema = {
     },
     title: {
       title: 'editor.iframe.title.title',
+      type: 'string',
+      default: null,
+    },
+    id: {
+      title: 'editor.iframe.id.title',
+      type: 'string',
+      default: null,
+    },
+    className: {
+      title: 'editor.iframe.className.title',
+      type: 'string',
+      default: null,
+    },
+    onLoad: {
+      title: 'editor.iframe.onLoad.title',
       type: 'string',
       default: null,
     },

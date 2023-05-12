@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRuntime, RenderContext } from 'vtex.render-runtime'
+import { useRuntime } from 'vtex.render-runtime'
 
 import Iframe from './Iframe'
 
@@ -9,6 +9,9 @@ interface Props {
   height?: number
   title?: string
   allow?: string
+  id?: string
+  className?: string
+  onLoad?: any
 }
 
 function DynamicIframe({
@@ -17,11 +20,14 @@ function DynamicIframe({
   height,
   title,
   allow,
+  id,
+  className,
+  onLoad,
 }: Props) {
   const {
     route: { params },
     query = {},
-  } = useRuntime() as RenderContext.RenderContext
+  } = useRuntime()
 
   const queryString = Object.keys(query).reduce((acc, key) => {
     return `${acc || '?'}${key}=${query[key]}&`
@@ -52,6 +58,9 @@ function DynamicIframe({
       width={width}
       height={height}
       allow={allow}
+      id={id}
+      className={className}
+      onLoad={onLoad}
     />
   )
 }
@@ -78,6 +87,21 @@ DynamicIframe.schema = {
     },
     title: {
       title: 'editor.dynamiciframe.title.title',
+      type: 'string',
+      default: null,
+    },
+    id: {
+      title: 'editor.dynamiciframe.id.title',
+      type: 'string',
+      default: null,
+    },
+    className: {
+      title: 'editor.dynamiciframe.className.title',
+      type: 'string',
+      default: null,
+    },
+    onLoad: {
+      title: 'editor.dynamiciframe.onLoad.title',
       type: 'string',
       default: null,
     },
