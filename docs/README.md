@@ -4,7 +4,9 @@
 
 <!-- DOCS-IGNORE:start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- DOCS-IGNORE:end -->
 
@@ -15,21 +17,19 @@ An app that makes it possible to render external iframes on a store.
 ## Configuration - standard Iframe
 
 1. Add the `vtex.iframe` to the theme's dependencies on the `manifest.json`
+
 ```json
 "dependencies": {
  "vtex.iframe": "0.x"
 }
 ```
- 
- 2. Add the interface `iframe` to any **custom page** (Iframes are not allowed outside custom pages).
- 
+
+2.  Add the interface `iframe` to any **custom page** (Iframes are not allowed outside custom pages).
+
 ```json
 {
   "store.custom#about-us": {
-    "blocks": [
-      "flex-layout.row#about-us",
-      "iframe"
-    ]
+    "blocks": ["flex-layout.row#about-us", "iframe"]
   },
 
   "iframe": {
@@ -40,12 +40,12 @@ An app that makes it possible to render external iframes on a store.
 }
 ```
 
-| Prop name | Type | Description | Default value |
-|--------------|--------|--------------| --------|
-| `src` | String | Source address the iframe should render | `null`
-| `width` | Number | Width attribute of the iframe | `null`
-| `height` | Number | Height attribute of the iframe | `null`
-| `allow` | String | allow attribute of the iframe | `null`
+| Prop name | Type   | Description                             | Default value |
+| --------- | ------ | --------------------------------------- | ------------- |
+| `src`     | String | Source address the iframe should render | `null`        |
+| `width`   | Number | Width attribute of the iframe           | `null`        |
+| `height`  | Number | Height attribute of the iframe          | `null`        |
+| `allow`   | String | allow attribute of the iframe           | `null`        |
 
 ## Configuration - dynamic Iframe
 
@@ -61,12 +61,10 @@ An app that makes it possible to render external iframes on a store.
 
 ```json
 {
-  "store.custom#locationPage":{
-    "children":[
-      "iframe.dynamic-src"
-    ]
+  "store.custom#locationPage": {
+    "children": ["iframe.dynamic-src"]
   },
-  "iframe.dynamic-src":{
+  "iframe.dynamic-src": {
     "props": {
       "dynamicSrc": "https://www.test.com/exampleStaticPathName/{dynamicParam1}/{dynamicParam2}/exampleStaticPageName",
       "width": "1920",
@@ -77,29 +75,34 @@ An app that makes it possible to render external iframes on a store.
   }
 }
 ```
+
 3. register your new page in routes.json with appropriate parameters passed into the page url
 
 ```json
 {
-  "store.custom#locationPage":{
+  "store.custom#locationPage": {
     "path": "/:param1/:param2/pagename"
   }
 }
 ```
 
-| Prop name | Type | Description | Default value |
-|--------------|--------|--------------| --------|
-| `dynamicSrc` | String | iframe src with dynamic parameters from page URL enclosed in '{}' | `null`
-| `width` | Number | Width attribute of the iframe | `null`
-| `height` | Number | Height attribute of the iframe | `null`
-| `title` | String | title attribute of the iframe | `null`
-| `allow` | String | allow attribute of the iframe | `null`
+| Prop name    | Type   | Description                                                       | Default value |
+| ------------ | ------ | ----------------------------------------------------------------- | ------------- |
+| `dynamicSrc` | String | iframe src with dynamic parameters from page URL enclosed in '{}' | `null`        |
+| `width`      | Number | Width attribute of the iframe                                     | `null`        |
+| `height`     | Number | Height attribute of the iframe                                    | `null`        |
+| `title`      | String | title attribute of the iframe                                     | `null`        |
+| `allow`      | String | allow attribute of the iframe                                     | `null`        |
+| `id`         | String | ID attribute of the iframe                                        | `null`        |
+| `className`  | String | class attribute of the iframe                                     | `null`        |
+| `onLoad`     | String | onLoad attribute of the iframe                                    | `null`        |
 
 ## Customization
 
 There is a `.container` handle that wraps the iframe, it's also possible to use `blockClass`.
 
 <!-- DOCS-IGNORE:start -->
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -109,7 +112,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 <!-- DOCS-IGNORE:end -->

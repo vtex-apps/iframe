@@ -6,6 +6,12 @@
   "editor.iframe.width.title": "العرض",
   "editor.iframe.title.title": "العنوان",
   "editor.iframe.allow.title": "السماح",
+  "editor.iframe.id.title": "ID",
+  "editor.iframe.className.title": "className",
+  "editor.iframe.onLoad.title": "onLoad",
+  "editor.dynamiciframe.id.title": "ID",
+  "editor.dynamiciframe.className.title": "className",
+  "editor.dynamiciframe.onLoad.title": "onLoad",
   "editor.dynamiciframe.title": "اطار مواقع ديناميكي",
   "editor.dynamiciframe.title.title": "العنوان",
   "editor.dynamiciframe.srcPrepend.description": "مصدر رابط اطار الموقع من السلسة الساقة",
@@ -16,5 +22,3 @@
   "editor.dynamiciframe.width.title": "العرض",
   "editor.dynamiciframe.allow.title": "السماح"
 }
-  
-  

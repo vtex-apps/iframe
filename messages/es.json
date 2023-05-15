@@ -3,5 +3,22 @@
   "editor.iframe.src.description": "Dirección de origen del iframe",
   "editor.iframe.src.title": "Src",
   "editor.iframe.height.title": "Altura",
-  "editor.iframe.width.title": "Longitud"
+  "editor.iframe.width.title": "Longitud",
+  "editor.iframe.id.title": "ID",
+  "editor.iframe.className.title": "className",
+  "editor.iframe.onLoad.title": "onLoad",
+  "editor.dynamiciframe.id.title": "ID",
+  "editor.dynamiciframe.className.title": "className",
+  "editor.dynamiciframe.onLoad.title": "onLoad",
+  "editor.iframe.title.title": "Title",
+  "editor.iframe.allow.title": "Allow",
+  "editor.dynamiciframe.title": "Dynamic Iframe",
+  "editor.dynamiciframe.title.title": "Title",
+  "editor.dynamiciframe.srcPrepend.description": "iframe source url pre-pended string",
+  "editor.dynamiciframe.srcPrepend.title": "Prepend",
+  "editor.dynamiciframe.srcAppend.description": "iframe source url appended string",
+  "editor.dynamiciframe.srcAppend.title": "Append",
+  "editor.dynamiciframe.height.title": "Height",
+  "editor.dynamiciframe.width.title": "Width",
+  "editor.dynamiciframe.allow.title": "Allow"
 }
