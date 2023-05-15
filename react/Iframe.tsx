@@ -20,12 +20,10 @@ function Iframe(props: Props) {
   const handles = useCssHandles(CSS_HANDLES)
 
   const handleIframeLoad = () => {
-    // eslint-disable-next-line vtex/prefer-early-return
-    if (onLoad) {
-      // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
-      return Function('IframeHandler', `"use strict";(${onLoad});`)(onLoad)
-    }
-    return null
+    if (!onLoad) return null
+    
+    // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
+    return Function('IframeHandler', `"use strict";(${onLoad});`)(onLoad)
   }
 
   return (
