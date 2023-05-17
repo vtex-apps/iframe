@@ -2,7 +2,7 @@
 import React from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
-const CSS_HANDLES = ['container'] as const
+const CSS_HANDLES = ['container', 'iframe'] as const
 
 interface Props {
   src?: string
@@ -37,6 +37,7 @@ function Iframe(props: Props) {
         className={className}
         onLoad={handleIframeLoad}
         frameBorder="0"
+        className={`${handles.iframe}` }
       />
     </div>
   )
