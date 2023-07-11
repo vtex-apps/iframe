@@ -96,6 +96,26 @@ An app that makes it possible to render external iframes on a store.
 | `id`         | String | ID attribute of the iframe                                        | `null`        |
 | `className`  | String | class attribute of the iframe                                     | `null`        |
 | `onLoad`     | String | onLoad attribute of the iframe                                    | `null`        |
+| `srcAccount` | Object | Object with account name and src                                  | `null`        |
+
+### srcAccount
+
+Using srcAccount
+
+```json
+  "iframe#logout": {
+    "props": {
+      "src": "//www.mywebsiteprod.com/logout",
+      "srcAccount": {
+        "mywebsiteprod": "//www.mywebsite.com/logout",
+        "mywebsiteqa": "//qa.mywebsite.com/logout"
+      },
+      "onLoad": "setTimeout(() => {window.location.href='/'}, 5000)",
+      "className": "iframeLogout",
+      "id": "iframeLogout"
+    }
+  },
+```
 
 ## Customization
 

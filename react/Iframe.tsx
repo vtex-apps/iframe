@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 import React from 'react'
 import { useCssHandles } from 'vtex.css-handles'
+import { useRuntime } from 'vtex.render-runtime'
 
 const CSS_HANDLES = ['container'] as const
 
 interface Props {
   src?: string
+  srcAccount?: any
   width?: number
   height?: number
   allow?: string
@@ -16,8 +18,19 @@ interface Props {
 }
 
 function Iframe(props: Props) {
-  const { src, width, height, title, allow, id, className, onLoad } = props
+  const {
+    src,
+    srcAccount,
+    width,
+    height,
+    title,
+    allow,
+    id,
+    className,
+    onLoad,
+  } = props
   const handles = useCssHandles(CSS_HANDLES)
+  const runtime = useRuntime()
 
   const handleIframeLoad = () => {
     if (!onLoad) return null
@@ -25,11 +38,15 @@ function Iframe(props: Props) {
     return Function('IframeHandler', `"use strict";(${onLoad});`)(onLoad)
   }
 
+  const processSrc = () => srcAccount?.[runtime.account] ?? src
+
+  console.log('processSrc =>', processSrc())
+
   return (
     <div className={`${handles.container} w-100 flex justify-center`}>
       <iframe
         title={title}
-        src={src}
+        src={processSrc()}
         width={width}
         height={height}
         allow={allow}
@@ -49,6 +66,12 @@ Iframe.schema = {
     src: {
       title: 'editor.iframe.src.title',
       description: 'editor.iframe.src.description',
+      type: 'string',
+      default: null,
+    },
+    srcAccount: {
+      title: 'editor.iframe.srcAccount.title',
+      description: 'editor.iframe.srcAccount.description',
       type: 'string',
       default: null,
     },
