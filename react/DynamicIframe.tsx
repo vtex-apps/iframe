@@ -35,9 +35,9 @@ function DynamicIframe({
 
   const queryStringSearch = Object.keys(params).length
     ? Object.keys(query).reduce((acc, key) => {
-          return `${acc || '?'}${key}=${query[key]}&`
+        return `${acc || '?'}${key}=${query[key]}&`
       }, '')
-    : ``;
+    : ``
 
   const src = dynamicSrc.replace(/({[A-z0-9]*})/g, (match: string) => {
     const thisParam = match.replace(/{|}/g, '')
