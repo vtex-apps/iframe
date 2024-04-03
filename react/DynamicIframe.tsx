@@ -26,14 +26,15 @@ function DynamicIframe({
 }: Props) {
   const {
     route: { params, queryString },
-    query = {}
+    query = {},
   } = useRuntime()
 
-  const _dynamicParams:any = Object.keys(params).length ? params : queryString
+  const _dynamicParams: any = Object.keys(params).length ? params : queryString
 
   let allParamsExist = true
 
-  const queryStringSearch = Object.keys(params).length ? Object.keys(query).reduce((acc, key) => {
+  const queryStringSearch = Object.keys(params).length
+  ? Object.keys(query).reduce((acc, key) => {
     return `${acc || '?'}${key}=${query[key]}&`
   }, '') : ``;
 
@@ -48,7 +49,6 @@ function DynamicIframe({
     }
     return _dynamicParams[thisParam]
   })
-
 
   if (allParamsExist !== true || !src) {
     return null
