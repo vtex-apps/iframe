@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "iframe",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "title": "Iframe",
   "description": "An app to use sourced iframes",
   "defaultLocale": "pt-BR",
