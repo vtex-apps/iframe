@@ -25,26 +25,30 @@ function DynamicIframe({
   onLoad,
 }: Props) {
   const {
-    route: { params },
+    route: { params, queryString },
     query = {},
   } = useRuntime()
 
-  const queryString = Object.keys(query).reduce((acc, key) => {
-    return `${acc || '?'}${key}=${query[key]}&`
-  }, '')
+  const _dynamicParams: any = Object.keys(params).length ? params : queryString
 
   let allParamsExist = true
 
+  const queryStringSearch = Object.keys(params).length
+    ? Object.keys(query).reduce((acc, key) => {
+        return `${acc || '?'}${key}=${query[key]}&`
+      }, '')
+    : ``
+
   const src = dynamicSrc.replace(/({[A-z0-9]*})/g, (match: string) => {
     const thisParam = match.replace(/{|}/g, '')
-    if (!thisParam || !params[thisParam]) {
+    if (!thisParam || !_dynamicParams[thisParam]) {
       allParamsExist = false
       console.error(
-        `parameter ${thisParam} not found in runtime params: ${params}`
+        `parameter ${thisParam} not found in runtime params: ${_dynamicParams}`
       )
       return ''
     }
-    return params[thisParam]
+    return _dynamicParams[thisParam]
   })
 
   if (allParamsExist !== true || !src) {
@@ -54,7 +58,7 @@ function DynamicIframe({
   return (
     <Iframe
       title={title}
-      src={src + queryString}
+      src={src + queryStringSearch}
       width={width}
       height={height}
       allow={allow}
